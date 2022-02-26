@@ -15,9 +15,9 @@ public class HealthyFoodServiceImpl implements HealthyFoodService {
         HealthyFoodRepository healthyFoodRepository;
 
         @Override
-        public List<Dish> getAll() {
+        public List<Dish> getAllDishes() {
             List<Dish> dish = new ArrayList<>();
-            healthyFoodRepository.findAll();
+            healthyFoodRepository.findAll().forEach(dish::add);
             return dish;
         }
 
