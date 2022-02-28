@@ -48,8 +48,6 @@ public class HealthyFoodControllerTests {
 
     @Test
     public void testGetMeals() throws Exception {
-
-
         List<Dish> dish = new ArrayList<>();
         dish.add(new Dish(1L, "Dish one", "Veg", "breakfast", 500, "recipe1", "image1"));
         dish.add(new Dish(2L, "Dish two", "Veg", "lunch", 800, "recipe2", "image2"));
@@ -62,14 +60,5 @@ public class HealthyFoodControllerTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Dish one"));
-    }
-
-    @Test
-    public void testGetInfo() throws Exception {
-        String expectedContent = "This is a Healthy Food API";
-        this.mockMvcController.perform(
-                        MockMvcRequestBuilders.get("/info"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
     }
 }
