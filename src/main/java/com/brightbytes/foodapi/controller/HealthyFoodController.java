@@ -28,4 +28,9 @@ public class HealthyFoodController {
         List<Dish> dish = healthyFoodService.getAllDishes();
         return new ResponseEntity<>(dish, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/info")
+    public String info() {
+        return "This is a Healthy Food API";
+    }
 }

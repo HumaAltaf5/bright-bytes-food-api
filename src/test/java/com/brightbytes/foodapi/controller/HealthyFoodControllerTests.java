@@ -63,4 +63,13 @@ public class HealthyFoodControllerTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Dish one"));
     }
+
+    @Test
+    public void testGetInfo() throws Exception {
+        String expectedContent = "This is a Healthy Food API";
+        this.mockMvcController.perform(
+                        MockMvcRequestBuilders.get("/info"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+    }
 }
