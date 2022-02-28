@@ -21,4 +21,10 @@ public class HealthyFoodServiceImpl implements HealthyFoodService {
             return dish;
         }
 
+        @Override
+        public List<Dish> getDishByType(String mealType) {
+            List<Dish> dish = new ArrayList<>();
+            healthyFoodRepository.getDishByType(mealType).forEach(dish::add);
+            return dish;
+    }
 }

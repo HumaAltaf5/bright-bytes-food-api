@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,6 +27,12 @@ public class HealthyFoodController {
     @GetMapping(value = "/meals")
     public ResponseEntity<List<Dish>> getAllMeals() {
         List<Dish> dish = healthyFoodService.getAllDishes();
+        return new ResponseEntity<>(dish, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/meals/calories")
+    public ResponseEntity<List<Dish>> getDishByType(@RequestParam(name = "type") String type, @RequestParam(name = "cal") int calories) {
+        List<Dish> dish = healthyFoodService.getDishByType(type);
         return new ResponseEntity<>(dish, HttpStatus.OK);
     }
 }
