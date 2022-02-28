@@ -1,8 +1,43 @@
-Healthy Food API
+# Healthy Food API
 
-This API will allow users to specify calories and display 3 healthy meals amounting to the total number of calories input by the user.
+## Introduction
+This is a Repository for a Healthy Food API called Bright Bytes. This API allows users to specify calories and the type of meals they are interested in and returns 3 healthy meals amounting to the total number of calories input by the user.
+
+## Description
+The Healthy Food API displays meals according to users requirements. Users can input the numbers of calories and choose the meal type they are interested in eg. Veg or Non Veg meal and send a 'Get Request' to the endpoints below to see 3 meals amounting to the calories specified.  
+End Points :
+1. Get /meals/veg/2000 - Returns json response of 3 veg meals summing upto 2000 calories
+2. Get /meals/nonveg/2500 - Returns json response of 3 non veg meals summing upto 2500 calories
+3. Get /actuator/info - Returns json response with API info
+4. Get /actuator/health - Returns json response with API health
 
 
-Before run the programme please create database with following code
+## Pre-Requisites
+- Java SE Development Kit 11
+- Maven
 
-`CREATE DATABASE brightbytes;`
+## Technologies and Dependencies
+- Spring Boot
+- Spring Web
+- MySQL Database
+- mysql-connector-java
+- Spring Data JPA
+- Spring Actuator
+- Spring Test
+
+### How to get Started
+- Fork and clone the repository from GitHub
+
+### Main Entry Point
+- The main entry point for the application is: [FoodapiApplication.java](/src/main/java/com/brightbytes/foodapi/FoodapiApplication.java)
+
+### Running Unit Tests
+- Tests can be run from IntelliJ from the test folder or from the terminal inside the root directory using: mvn test
+
+### Externalising Configurations - application.properties
+- The application.properties consists of all the required settings for the database connection and the /info and /health end points for the api
+
+### Database scripts
+- The database scripts required to interact with the database can be viewed in the [dbscripts](/src/main/resources/dbscripts) folder
+
+
