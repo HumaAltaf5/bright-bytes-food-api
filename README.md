@@ -6,10 +6,12 @@ This is a Repository for a Healthy Food API called Bright Bytes. This API allows
 ## Description
 The Healthy Food API displays meals according to users requirements. Users can input the numbers of calories and choose the meal type they are interested in eg. Veg or Non Veg meal and send a 'Get Request' to the endpoints below to see 3 meals amounting to the calories specified.  
 End Points :
-1. Get /meals/veg/2000 - Returns json response of 3 veg meals summing upto 2000 calories
-2. Get /meals/nonveg/2500 - Returns json response of 3 non veg meals summing upto 2500 calories
-3. Get /actuator/info - Returns json response with API info
-4. Get /actuator/health - Returns json response with API health
+1. Get /meals - Returns json response of 3 veg/non veg meals with no calorie limit 
+2. Get /meals/calories?type=veg&cal=2000 - Returns json response of 3 veg meals summing upto 2000 calories
+3. Get /meals/calories?type=nonveg - Returns json response of 3 non veg meals with no calorie limit
+4. Get /meals/calories?cal=1800 - Returns json response of 3 veg/nonveg meals summing upto 1800 calories 
+5. Get /actuator/info - Returns json response with API info
+6Get /actuator/health - Returns json response with API health
 
 
 ## Pre-Requisites
