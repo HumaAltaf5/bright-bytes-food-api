@@ -13,6 +13,11 @@ End Points :
 5. Get /actuator/info - Returns json response with API info
 6Get /actuator/health - Returns json response with API health
 
+## Specification docs for the API can be seen at the link:
+http://localhost:8080/api-docs  
+
+## Specification docs for the API with Swagger can be seen at the link:
+http://localhost:8080/swagger-ui.html
 
 ## Pre-Requisites
 - Java SE Development Kit 11
