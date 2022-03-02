@@ -9,7 +9,8 @@ import java.util.List;
 
 @Repository
 public interface HealthyFoodRepository extends CrudRepository<Dish, Long> {
-    @Query(nativeQuery = true,value = "SELECT * from dish WHERE calories = :calories LIMIT 3")
+
+    @Query(nativeQuery = true,value = "select * from (select *,sum(calories) OVER (ORDER BY calories DESC)x from dish) a where x <= :calories")
     List<Dish> getDishByCalories(int calories);
 
     @Query(nativeQuery = true,value = "SELECT * from dish WHERE mealtype = :mealType LIMIT 3")
