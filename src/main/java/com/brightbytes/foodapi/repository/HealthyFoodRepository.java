@@ -10,7 +10,14 @@ import java.util.List;
 @Repository
 public interface HealthyFoodRepository extends CrudRepository<Dish, Long> {
 
-    @Query(nativeQuery = true,value = "select * from (select *,sum(calories) OVER (ORDER BY calories DESC)x from dish) a where x <= :calories")
+    @Query(nativeQuery = true,value = "(select b_id as id, b_name as name, b_category as category, b_mealtype as mealtype, b_calories as calories, b_recipelink as recipelink, b_imagelink as imagelink, b_allergens as allergens from "+
+            "plan_view where total_calories <= :calories ORDER BY total_calories desc LIMIT 1) "+
+            "UNION "+
+            "(select l_id as id, l_name as name, l_category as category, l_mealtype as mealtype, l_calories as calories, l_recipelink as recipelink, l_imagelink as imagelink, l_allergens as allergens from "+
+            "plan_view where total_calories <= :calories ORDER BY total_calories desc LIMIT 1) "+
+            "UNION "+
+            "(select d_id as id, d_name as name, d_category as category, d_mealtype as mealtype, d_calories as calories, d_recipelink as recipelink, d_imagelink as imagelink, d_allergens as allergens from "+
+            "plan_view where total_calories <= :calories ORDER BY total_calories desc LIMIT 1)")
     List<Dish> getDishByCalories(int calories);
 
     @Query(nativeQuery = true,value = "SELECT * from dish WHERE mealtype = :mealType LIMIT 3")
