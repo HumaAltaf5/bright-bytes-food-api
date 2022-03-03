@@ -17,6 +17,7 @@ public interface HealthyFoodRepository extends CrudRepository<Dish, Long> {
     List<Dish> getDishByType(String mealType);
 
     @Query(nativeQuery = true,value = "SELECT * from dish WHERE mealtype = :mealType AND calories = :calories LIMIT 3")
+    //@Query(nativeQuery = true,value = "select * from (select *,sum(calories) OVER (ORDER BY calories DESC)x from dish) a where x <= :calories AND mealtype = :mealType")
     List<Dish> getDishByCaloriesAndType(String mealType, int calories);
 }
 

@@ -49,9 +49,9 @@ public class HealthyFoodControllerTests {
     @Test
     public void testGetMeals() throws Exception {
         List<Dish> dish = new ArrayList<>();
-        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 500, "recipe1", "image1"));
-        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2"));
-        dish.add(new Dish(3L, "Dish three", "dinner", "veg", 800, "recipe3", "image3"));
+        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 500, "recipe1", "image1", "none"));
+        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2", "none"));
+        dish.add(new Dish(3L, "Dish three", "dinner", "veg", 800, "recipe3", "image3", "none"));
 
         when(mockHealthyFoodServiceImpl.getAllDishes()).thenReturn(dish);
         mockMvcController = MockMvcBuilders.standaloneSetup(healthyFoodController).build();
@@ -65,8 +65,8 @@ public class HealthyFoodControllerTests {
     @Test
     public void testGetMealsByType() throws Exception {
         List<Dish> dish = new ArrayList<>();
-        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 500, "recipe1", "image1"));
-        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2"));
+        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 500, "recipe1", "image1", "none"));
+        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2", "none"));
 
         when(mockHealthyFoodServiceImpl.getDishByType("nonveg")).thenReturn(dish);
         mockMvcController = MockMvcBuilders.standaloneSetup(healthyFoodController).build();
@@ -81,8 +81,8 @@ public class HealthyFoodControllerTests {
     @Test
     public void testGetMealsByCalories() throws Exception {
         List<Dish> dish = new ArrayList<>();
-        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 400, "recipe1", "image1"));
-        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2"));
+        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 400, "recipe1", "image1", "none"));
+        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2", "none"));
 
         when(mockHealthyFoodServiceImpl.getDishByCalories(800)).thenReturn(dish);
         mockMvcController = MockMvcBuilders.standaloneSetup(healthyFoodController).build();
@@ -96,8 +96,8 @@ public class HealthyFoodControllerTests {
     @Test
     public void testGetMealsByCaloriesAndType() throws Exception {
         List<Dish> dish = new ArrayList<>();
-        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2"));
-        dish.add(new Dish(3L, "Dish three", "dinner", "nonveg", 800, "recipe3", "image3"));
+        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2", "none"));
+        dish.add(new Dish(3L, "Dish three", "dinner", "nonveg", 800, "recipe3", "image3", "none"));
 
         when(mockHealthyFoodServiceImpl.getDishByCaloriesAndType("nonveg",800)).thenReturn(dish);
         mockMvcController = MockMvcBuilders.standaloneSetup(healthyFoodController).build();

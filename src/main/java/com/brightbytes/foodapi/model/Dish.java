@@ -39,5 +39,8 @@ public class Dish {
 
     @Column
     String imagelink;
+
+    @Column
+    String allergens;
 }
 
