@@ -6,12 +6,12 @@ This is a Repository for a Healthy Food API called Bright Bytes. This API allows
 ## Description
 The Healthy Food API displays meals according to users requirements. Users can input the numbers of calories and choose the meal type they are interested in eg. Veg or Non Veg meal and send a 'Get Request' to the endpoints below to see 3 meals amounting to the calories specified.  
 End Points :
-1. Get /meals - Returns json response of 3 veg/non veg meals with no calorie limit 
+1. Get /meals - Returns json response of 3 veg/non veg meals with no particular calorie limit 
 2. Get /meals/calories?type=veg&cal=2000 - Returns json response of 3 veg meals summing upto 2000 calories
 3. Get /meals/calories?type=nonveg - Returns json response of 3 non veg meals with no calorie limit
-4. Get /meals/calories?cal=1800 - Returns json response of 3 veg/nonveg meals summing upto 1800 calories 
+4. Get /meals/calories?cal=2500 - Returns json response of 3 veg/nonveg meals summing upto 2500 calories 
 5. Get /actuator/info - Returns json response with API info
-6Get /actuator/health - Returns json response with API health
+6. Get /actuator/health - Returns json response with API health
 
 ## Specification docs for the API can be seen at the link:
 http://localhost:8080/api-docs  
@@ -46,5 +46,9 @@ http://localhost:8080/swagger-ui.html
 
 ### Database scripts
 - The database scripts required to interact with the database can be viewed in the [dbscripts](/src/main/resources/dbscripts) folder
+- The steps to set up the Database can be seen in the [DBSetUp.md](src/main/resources/dbscripts/DBSetUp.md) file  
 
-
+### Extension 
+- The DB has a collumn named allergens and endpoints to get meals that exclude allergens eg peanut can be added.
+- The API can also be extended to display vegan/keto etc meals.
+- The API can also be extended for users/food bloggers to contribute healthy meals and recipes.
