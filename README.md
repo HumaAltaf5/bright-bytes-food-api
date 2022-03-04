@@ -49,6 +49,6 @@ http://localhost:8080/swagger-ui.html
 - The steps to set up the Database can be seen in the [DBSetUp.md](src/main/resources/dbscripts/DBSetUp.md) file  
 
 ### Extension 
-- The DB has a collumn named allergens and endpoints to get meals that exclude allergens eg peanut can be added.
+- The DB has a column named allergens and endpoints to get meals that exclude allergens eg peanut can be added.
 - The API can also be extended to display vegan/keto etc meals.
 - The API can also be extended for users/food bloggers to contribute healthy meals and recipes.
