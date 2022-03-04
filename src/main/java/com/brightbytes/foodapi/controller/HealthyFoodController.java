@@ -1,5 +1,6 @@
 package com.brightbytes.foodapi.controller;
 
+import com.brightbytes.foodapi.exception.FoodApiRequestException;
 import com.brightbytes.foodapi.model.Dish;
 import com.brightbytes.foodapi.service.HealthyFoodServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,13 @@ public class HealthyFoodController {
 
     @GetMapping(value = "/meals")
     public ResponseEntity<List<Dish>> getAllMeals() {
-        List<Dish> dish = healthyFoodService.getAllDishes();
-        return new ResponseEntity<>(dish, HttpStatus.OK);
+        try{
+            List<Dish> dish = healthyFoodService.getAllDishes();
+            return new ResponseEntity<>(dish, HttpStatus.OK);
+        }
+        catch (Exception e) {
+            throw new FoodApiRequestException("Input is not valid");
+        }
     }
 
 
