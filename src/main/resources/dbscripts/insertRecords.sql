@@ -1,4 +1,4 @@
-INSERT INTO dish (name,category,mealtype,calories,recipelink,imagelink,allergens) VALUES
+INSERT INTO dish (name,mealtype,category,calories,recipelink,imagelink,allergens) VALUES
 ('Meat balls with Rice','nonveg', 'Lunch', 602,'https://www.eatthismuch.com/recipe/nutrition/turkey-meatballs-in-coconut-curry-sauce-and-basmat,992351/', 'https://images.pexels.com/photos/5720891/pexels-photo-5720891.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'none'),
 ('Salmon with vegetables','nonveg', 'Dinner', 825,'https://www.eatthismuch.com/recipe/nutrition/salmon-with-capers-and-caprese-salad,3235987/', 'https://images.pexels.com/photos/2374946/pexels-photo-2374946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'none'),
 ('Peanut Butter Banna Toast','veg', 'Breakfast', 385,'https://www.eatthismuch.com/recipe/nutrition/peanut-butter-banana-toast,39533/', 'https://images.pexels.com/photos/6659698/pexels-photo-6659698.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'peanut'),
@@ -19,4 +19,6 @@ INSERT INTO dish (name,category,mealtype,calories,recipelink,imagelink,allergens
 ('Turkey Kielbasa Hash','nonveg', 'Dinner', 676,'https://www.eatthismuch.com/recipe/nutrition/turkey-kielbasa-hash,3173399/', 'https://images.eatthismuch.com/img/281002_gtfoose550_8ec1be89-6164-4a5f-ae6a-2217c45ee74a.png', 'none'),
 ('Berry Bran Shake','veg', 'Breakfast', 928,'https://www.eatthismuch.com/recipe/nutrition/berry-bran-shake,1014228/', 'https://images.eatthismuch.com/img/1014228_nishitaharmukh_7d9f8be0-561b-45cd-aa16-b3db78f9c847.jpg', 'none'),
 ('Big PB&J Sandwich','veg', 'Lunch', 615,'https://www.eatthismuch.com/recipe/nutrition/big-pbj-sandwich,33482/', 'https://images.eatthismuch.com/img/33482_tabitharwheeler_6cd5f22c-a4fa-476b-abba-c9c9a42c3c3c.jpg', 'none'),
-('Seitan Skillet with Peppers and Onions','veg', 'Dinner', 1013,'https://www.eatthismuch.com/recipe/nutrition/seitan-skillet-with-peppers-and-onions,1505931/', 'https://images.eatthismuch.com/img/1505931_KeniaWiedemann_3824f604-bb3d-442e-bff4-29c0c3546470.jpg', 'none');
+('Seitan Skillet with Peppers and Onions','veg', 'Dinner', 1013,'https://www.eatthismuch.com/recipe/nutrition/seitan-skillet-with-peppers-and-onions,1505931/', 'https://images.eatthismuch.com/img/1505931_KeniaWiedemann_3824f604-bb3d-442e-bff4-29c0c3546470.jpg', 'none'),
+('Hummus Pocket Sandwich','veg', 'Lunch', 445,'https://www.eatthismuch.com/recipe/nutrition/hummus-pocket-sandwich,33542/', 'https://images.eatthismuch.com/img/33542_erin_m_84b9af6c-9e50-4ec2-a052-f20b379f94f7.png', 'none'),
+('Kung Pao Tempeh','veg', 'Dinner', 986,'https://www.eatthismuch.com/recipe/nutrition/kung-pao-tempeh,374006/', 'https://images.eatthismuch.com/img/374006_erin_m_f5582f14-9e0e-4623-9b29-7af957a274b6.png', 'peanut');
