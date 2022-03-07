@@ -47,6 +47,7 @@ http://localhost:8080/swagger-ui.html
 ### Database scripts
 - The database scripts required to interact with the database can be viewed in the [dbscripts](/src/main/resources/dbscripts) folder
 - The steps to set up the Database can be seen in the [DBSetUp.md](src/main/resources/dbscripts/DBSetUp.md) file  
+- The data for demonstration purposes of the project has been taken from http://www.eatthismuch.com 
 
 ### Extension 
 - The DB has a column named allergens and endpoints to get meals that exclude allergens eg peanut can be added.

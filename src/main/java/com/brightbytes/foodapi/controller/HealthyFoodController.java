@@ -26,12 +26,12 @@ public class HealthyFoodController {
 
     @GetMapping(value = "/meals")
     public ResponseEntity<List<Dish>> getAllMeals() {
-        try{
+        try {
             List<Dish> dish = healthyFoodService.getAllDishes();
             return new ResponseEntity<>(dish, HttpStatus.OK);
         }
         catch (Exception e) {
-            throw new FoodApiRequestException("Input is not valid");
+            throw new FoodApiRequestException("Request is not valid");
         }
     }
 
@@ -51,10 +51,9 @@ public class HealthyFoodController {
             }
             return new ResponseEntity<>(dish, HttpStatus.OK);
 
-        } catch(Exception e)  {
-            System.out.println(e);
+        } catch (Exception e)  {
+            throw new FoodApiRequestException("Request is not valid");
         }
-        return null;
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
@@ -62,7 +61,7 @@ public class HealthyFoodController {
         String messg = "";
         System.out.println("Encountered" + ex + "Exception");
         messg = "The request is invalid as it is missing parameters. Please input the correct parameters eg:";
-        messg = messg + "/meals/calories?cal=val(val= total calories for 3 meals eg. 2000)";
+        messg = messg + "/meals/calories?type=val1&cal=val(val1=veg/nonveg and val2= total calories for 3 meals eg. 2000)";
         return messg;
     }
 }
