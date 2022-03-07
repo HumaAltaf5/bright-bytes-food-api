@@ -25,12 +25,16 @@ public class HealthyFoodController {
     }
 
     @GetMapping(value = "/meals")
-    public ResponseEntity<List<Dish>> getAllMeals() {
+    public ResponseEntity<List<Dish>> getAllMeals(@RequestParam(name = "allergy", required = false, defaultValue="") String allergyType) {
         try {
-            List<Dish> dish = healthyFoodService.getAllDishes();
+            List<Dish> dish = new ArrayList<>();
+            if (allergyType.equals("")) {
+                dish = healthyFoodService.getAllDishes();
+            } else {
+                dish = healthyFoodService.getDishByAllergyType(allergyType);
+            }
             return new ResponseEntity<>(dish, HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new FoodApiRequestException("Request is not valid");
         }
     }
@@ -38,8 +42,8 @@ public class HealthyFoodController {
 
     @GetMapping(value = "/meals/calories")
     public ResponseEntity<List<Dish>> getDishByCaloriesAndType(@RequestParam(name = "type", required = false, defaultValue="") String type, @RequestParam(name = "cal", required = true, defaultValue="0") int calories) throws Exception {
-        List<Dish> dish = new ArrayList<>();
-        try {
+         try {
+            List<Dish> dish = new ArrayList<>();
             if (type.equals("") && calories == 0) {
                 dish = healthyFoodService.getAllDishes();
             } else if(type.equals("") && calories != 0) {

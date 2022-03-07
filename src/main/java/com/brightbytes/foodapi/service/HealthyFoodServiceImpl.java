@@ -39,5 +39,11 @@ public class HealthyFoodServiceImpl implements HealthyFoodService {
         healthyFoodRepository.getDishByCaloriesAndType(mealType, calories).forEach(dish::add);
         return dish;
     }
+
+    public List<Dish> getDishByAllergyType(String allergyType) {
+        List<Dish> dish = new ArrayList<>();
+        healthyFoodRepository.getDishByAllergyInfo(allergyType).forEach(dish::add);
+        return dish;
+    }
 }
 

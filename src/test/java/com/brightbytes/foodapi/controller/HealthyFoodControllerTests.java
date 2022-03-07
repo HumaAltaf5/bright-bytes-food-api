@@ -109,4 +109,22 @@ public class HealthyFoodControllerTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].mealtype").value("nonveg"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].mealtype").value("nonveg"));
     }
+
+    @Test
+    public void testGetMealsByAllergyType() throws Exception {
+        List<Dish> dish = new ArrayList<>();
+        dish.add(new Dish(1L, "Dish one", "breakfast", "nonveg", 500, "recipe1", "image1", "none"));
+        dish.add(new Dish(2L, "Dish two", "lunch", "nonveg", 800, "recipe2", "image2", "none"));
+        dish.add(new Dish(3L, "Dish three", "dinner", "nonveg", 800, "recipe3", "image3", "none"));
+
+        when(mockHealthyFoodServiceImpl.getDishByAllergyType("peanut")).thenReturn(dish);
+        mockMvcController = MockMvcBuilders.standaloneSetup(healthyFoodController).build();
+        this.mockMvcController.perform(
+                        MockMvcRequestBuilders.get("/meals?allergy=peanut"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].allergens").value("none"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[1].allergens").value("none"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[1].allergens").value("none"));
+
+    }
 }

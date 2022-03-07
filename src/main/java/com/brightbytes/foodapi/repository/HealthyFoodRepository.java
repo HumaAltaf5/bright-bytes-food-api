@@ -37,5 +37,12 @@ public interface HealthyFoodRepository extends CrudRepository<Dish, Long> {
             "plan_view where total_calories <= :calories AND b_mealType = :mealType AND l_mealType = :mealType AND d_mealType = :mealType ORDER BY total_calories desc LIMIT 1)")
     //@Query(nativeQuery = true,value = "select * from (select *,sum(calories) OVER (ORDER BY calories DESC)x from dish) a where x <= :calories AND mealtype = :mealType")
     List<Dish> getDishByCaloriesAndType(String mealType, int calories);
+
+    @Query(nativeQuery = true,value = "(SELECT * from dish WHERE mealtype != :allergyType AND category = 'Breakfast' ORDER BY RAND() LIMIT 1)\n" +
+            "UNION\n" +
+            "(SELECT * from dish WHERE allergens != :allergyType AND category = 'Lunch' ORDER BY RAND() LIMIT 1)\n" +
+            "UNION\n" +
+            "(SELECT * from dish WHERE allergens != :allergyType AND category = 'Dinner' ORDER BY RAND() LIMIT 1);" )
+    List<Dish> getDishByAllergyInfo(String allergyType);
 }
 
