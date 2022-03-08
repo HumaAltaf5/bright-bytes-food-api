@@ -10,8 +10,9 @@ End Points :
 2. Get /meals/calories?type=veg&cal=2000 - Returns json response of 3 veg meals summing upto 2000 calories
 3. Get /meals/calories?type=nonveg - Returns json response of 3 non veg meals with no calorie limit
 4. Get /meals/calories?cal=2500 - Returns json response of 3 veg/nonveg meals summing upto 2500 calories 
-5. Get /actuator/info - Returns json response with API info
-6. Get /actuator/health - Returns json response with API health
+5. Get /meals?allergy=allergytype - eg. ?allergy=peanut, Returns json response of 3 veg/nonveg meals that don't contain peanut
+6. Get /actuator/info - Returns json response with API info
+7. Get /actuator/health - Returns json response with API health
 
 ## Specification docs for the API can be seen at the link:
 http://localhost:8080/api-docs  
@@ -50,6 +51,7 @@ http://localhost:8080/swagger-ui.html
 - The data for demonstration purposes of the project has been taken from http://www.eatthismuch.com 
 
 ### Extension 
-- The DB has a column named allergens and endpoints to get meals that exclude allergens eg peanut can be added.
-- The API can also be extended to display vegan/keto etc meals.
-- The API can also be extended for users/food bloggers to contribute healthy meals and recipes.
+- The API can be extended to allow users to specify how many meals they want to split total calories into eg. split 2500 calories across 4 meals.
+- The API can be extended to display vegan/keto etc meals.
+- The API be extended for users/food bloggers to contribute healthy meals and recipes using Post method.
+
